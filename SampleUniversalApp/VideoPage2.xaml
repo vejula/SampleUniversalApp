@@ -1,0 +1,17 @@
+﻿<Page
+    x:Class="SampleUniversalApp.VideoPage2"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleUniversalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+	<Grid Background="LightGray" Padding="20">
+		<MediaElement x:Name="mediaElement" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+					  AutoPlay="True" Source="http://amssamples.streaming.mediaservices.windows.net/49b57c87-f5f3-48b3-ba22-c55cfdffa9cb/Sintel.ism/manifest(format=m3u8-aapl)"
+					  AreTransportControlsEnabled="True" AudioCategory="Movie" 
+					  AudioDeviceType="Multimedia" />
+		
+	</Grid>
+</Page>

@@ -1,0 +1,51 @@
+﻿<Page
+    x:Class="SampleUniversalApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SampleUniversalApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+	
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+			<TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{x:Bind Message}" Margin="20" 
+					   RenderTransformOrigin="-7.019,-1.36" Height="80" Width="280" 
+					   UseLayoutRounding="False" d:LayoutRounding="Auto" FontSize="48" 
+					   Foreground="#FF413AD6" DoubleTapped="textBlock_DoubleTapped">
+			<TextBlock.Resources>
+				<Storyboard x:Name="beginStoryBoard">
+					<ColorAnimation BeginTime="0" Duration="00:00:02" To="Red" Storyboard.TargetName="textBlock" Storyboard.TargetProperty="(TextBox.Foreground).(SolidColorBrush.Color)" />
+				</Storyboard>
+			</TextBlock.Resources>
+			<TextBlock.RenderTransform>
+				<CompositeTransform Rotation="-4.776"/>
+			</TextBlock.RenderTransform>
+		</TextBlock>
+		<Button x:Name="EnterButton" Content="Randomize" Margin="10" VerticalAlignment="Bottom" FontSize="24" Background="#FFEAEAEA" BorderBrush="Red" Foreground="Red" Width="200" Height="50" Click="button_Click" />
+		<Button x:Name="RealEnterButton" Content="Enter" Margin="10" VerticalAlignment="Bottom" FontSize="24" Background="#FFEAEAEA" BorderBrush="Red" Foreground="Red" Width="200" Height="50" Click="RealEnterButton_Click" HorizontalAlignment="Center" />
+		<Frame x:Name="frame" HorizontalAlignment="Center" Margin="20" VerticalAlignment="Center" Width="500" Height="250" />
+
+		<VisualStateManager.VisualStateGroups>
+			<VisualStateGroup>
+				<VisualState>
+					<VisualState.StateTriggers>
+						<AdaptiveTrigger MinWindowWidth="720" />
+					</VisualState.StateTriggers>
+					<VisualState.Setters>
+						<Setter Target="EnterButton.HorizontalAlignment" Value="Right" />
+						<Setter Target="textBlock.HorizontalAlignment" Value="Left" />
+					</VisualState.Setters>
+				</VisualState>
+				<VisualState>
+					<VisualState.StateTriggers>
+						<AdaptiveTrigger MinWindowWidth="0" />
+					</VisualState.StateTriggers>
+					<VisualState.Setters>
+						<Setter Target="EnterButton.HorizontalAlignment" Value="Left" />
+						<Setter Target="textBlock.HorizontalAlignment" Value="Right" />
+					</VisualState.Setters>
+				</VisualState>
+			</VisualStateGroup>
+		</VisualStateManager.VisualStateGroups>
+	</Grid>
+</Page>
